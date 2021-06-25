@@ -24,7 +24,7 @@ namespace Manager
         public MainWindow()
         {
             InitializeComponent();
-            db = new ApplicationContext();
+           
         }
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
@@ -40,14 +40,18 @@ namespace Manager
                 {
                     try
                     {
-                        db.Users.Add(new_user);
-                        db.SaveChanges();
-                        MessageBox.Show($"Пользователь\n{new_user.Login}\n- успешно зарегистрирован");
-                        textBoxLogin.Clear();
-                        passBox.Clear();
-                        passBox_reply.Clear();
-                        textBoxEmail.Clear();
-                        textBoxLogin.Focus();
+                        using (db = new ApplicationContext())
+                        {
+                            db.Users.Add(new_user);
+                            db.SaveChanges();
+                            MessageBox.Show($"Пользователь\n{new_user.Login}\n- успешно зарегистрирован");
+                            textBoxLogin.Clear();
+                            passBox.Clear();
+                            passBox_reply.Clear();
+                            textBoxEmail.Clear();
+                            textBoxLogin.Focus();
+                        }
+                        
                     }
                     catch (Exception ex)
                     {
@@ -59,7 +63,7 @@ namespace Manager
 
 
             }
-            else MessageBox.Show($"Регистрация пользователя\n{new_user.ToString()}\n- не прошла");
+            else MessageBox.Show($"Регистрация пользователя\n{new_user}\n- не прошла");
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
