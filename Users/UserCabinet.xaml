@@ -8,7 +8,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Авторизация пользователя" Height="450" Width="700" Loaded="Window_Loaded">
     <Grid Background="#ffdadada">
-        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20" Height="Auto" Width="Auto">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
@@ -17,17 +17,24 @@
                 <TextBlock Text="Кабинет пользователя" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
                 <Grid Margin="0 0 0 20"/>
                 <WrapPanel>
-                    <TabControl Height="100">
+                    <TabControl Height="Auto" Width="Auto">
                         <TabItem Header="Покупатель">
-                            <Grid Background="#FFE5E5E5">
-                                <Button x:Name="Button1" Content="Добавить покупателя"/>
-                            </Grid>
+                            <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
+                                <Button x:Name="Button1" Content="Добавить покупателя" Margin="5" Padding="5"/>
+                                <Button x:Name="Button2" Content="Карточка покупателя" Margin="5" Padding="5"/>
+                            </WrapPanel>
                         </TabItem>
                         <TabItem Header="Оформление заказа">
-                            <Grid Background="#FFE5E5E5"/>
+                            <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
+                                <Button x:Name="Button3" Content="Оформить заказ" Margin="5" Padding="5"/>
+                                <Button x:Name="Button4" Content="Распечатать чек" Margin="5" Padding="5"/>
+                            </WrapPanel>
                         </TabItem>
                         <TabItem Header="Закупка">
-                            <Grid Background="#FFE5E5E5"/>
+                            <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
+                                <Button x:Name="Button5" Content="Внести" Margin="5" Padding="5"/>
+                                <Button x:Name="Button6" Content="Отчет" Margin="5" Padding="5"/>
+                            </WrapPanel>
                         </TabItem>
                     </TabControl>
                 </WrapPanel>

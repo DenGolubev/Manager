@@ -9,6 +9,7 @@ namespace Manager.Checking
         private string login_mask = @"^[A-Za-z]+$";
         private string pass_mask = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])\S{1,16}$";
         private string email_mask = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
+        private string tel_mask = @"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$";
 
         public string CreateName(string name)
         {
@@ -43,6 +44,20 @@ namespace Manager.Checking
             try
             {
                 if (!Regex.IsMatch(email, email_mask)) throw new EmailException("Вы ввели email который не соответствует шаблону!");
+            }
+            catch (EmailException ex)
+            {
+                MessageBox.Show(ex.Message);
+                email = null;
+            }
+            return email;
+        }
+
+        public string CreateTel(string email)
+        {
+            try
+            {
+                if (!Regex.IsMatch(email, email_mask)) throw new TelException("Вы ввели номер телефона который не соответствует шаблону!");
             }
             catch (EmailException ex)
             {

@@ -81,16 +81,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="AuthUsers.xaml.cs">
+    <Compile Include="Authorization\AuthUsers.xaml.cs">
       <DependentUpon>AuthUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Checking\CheckNames.cs" />
     <Compile Include="Exceptions\EmailException.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserCabinet.xaml.cs">
+    <Compile Include="Exceptions\TelException.cs" />
+    <Compile Include="Users\User.cs" />
+    <Compile Include="Users\UserCabinet.xaml.cs">
       <DependentUpon>UserCabinet.xaml</DependentUpon>
     </Compile>
-    <Page Include="AuthUsers.xaml">
+    <Compile Include="Сustomers\Customer.cs" />
+    <Compile Include="Сustomers\CustomerCard.xaml.cs">
+      <DependentUpon>CustomerCard.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Authorization\AuthUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,7 +113,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UserCabinet.xaml">
+    <Page Include="Users\UserCabinet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Сustomers\CustomerCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

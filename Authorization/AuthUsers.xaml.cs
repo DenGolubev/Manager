@@ -19,7 +19,7 @@ namespace Manager
     /// </summary>
     public partial class AuthUsers : Window
     {
-        User auth_user = null;
+        User auth_user { get; set; }
         ApplicationContext db;
         public AuthUsers()
         {
