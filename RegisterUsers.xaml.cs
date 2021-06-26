@@ -12,19 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Manager.Checking;
 
 namespace Manager
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegisterUsers : Window
     {
         ApplicationContext db;
-        public MainWindow()
+        public RegisterUsers()
         {
             InitializeComponent();
-           
+            
         }
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
@@ -45,9 +46,11 @@ namespace Manager
                             db.Users.Add(new_user);
                             db.SaveChanges();
                             MessageBox.Show($"Пользователь\n{new_user.Login}\n- успешно зарегистрирован");
-                            AuthUsers auth = new AuthUsers();
-                            auth.Show();
-                            Hide();
+                            textBoxLogin.Clear();
+                            passBox.Clear();
+                            passBox_reply.Clear();
+                            textBoxEmail.Clear();
+                            textBoxLogin.Focus();
                         }
                         
                     }
@@ -64,16 +67,9 @@ namespace Manager
             else MessageBox.Show($"Регистрация пользователя\n{new_user}\n- не прошла");
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void RegisterUsers_Loaded(object sender, RoutedEventArgs e)
         {
             textBoxLogin.Focus();
-        }
-
-        private void Button_Auth_Click(object sender, RoutedEventArgs e)
-        {
-            AuthUsers auth = new AuthUsers();
-            auth.Show();
-            Hide();
         }
     }
 }
