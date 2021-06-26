@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Manager"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Авторизация пользователя" Height="450" Width="700" Loaded="Window_Loaded">
-    <Grid Background="#ffdadada">
+        Title="Авторизация пользователя" Height="450" Width="700"  Loaded="Window_Loaded" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid >
         <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20" Height="Auto" Width="Auto">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
@@ -20,7 +20,7 @@
                     <TabControl Height="Auto" Width="Auto">
                         <TabItem Header="Покупатель">
                             <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
-                                <Button x:Name="Button1" Content="Добавить покупателя" Margin="5" Padding="5"/>
+                                <Button x:Name="ButtonAddCustomer" Content="Добавить покупателя" Margin="5" Padding="5" Click="Button_Add_Customer_Click"/>
                                 <Button x:Name="Button2" Content="Карточка покупателя" Margin="5" Padding="5"/>
                             </WrapPanel>
                         </TabItem>

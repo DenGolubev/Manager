@@ -24,7 +24,7 @@ namespace Manager
 
         public override string ToString()
         {
-            return $"Логин {Name}\nПароль 1 {Tel}\nПочта {Email}";
+            return $"Логин {Name}\nТелефон {Tel}\nПочта {Email}";
         }
     }
 }

@@ -59,5 +59,10 @@ namespace Manager
             main.Show();
             Hide();
         }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

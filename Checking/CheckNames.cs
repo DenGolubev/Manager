@@ -53,18 +53,18 @@ namespace Manager.Checking
             return email;
         }
 
-        public string CreateTel(string email)
+        public string CreateTel(string tel)
         {
             try
             {
-                if (!Regex.IsMatch(email, email_mask)) throw new TelException("Вы ввели номер телефона который не соответствует шаблону!");
+                if (!Regex.IsMatch(tel, tel_mask)) throw new TelException("Вы ввели номер телефона который не соответствует шаблону!");
             }
             catch (EmailException ex)
             {
                 MessageBox.Show(ex.Message);
-                email = null;
+                tel = null;
             }
-            return email;
+            return tel;
         }
     }
 }

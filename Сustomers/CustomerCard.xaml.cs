@@ -28,7 +28,7 @@ namespace Manager.Сustomers
                     {
                         db.Customers.Add(new_customer);
                         db.SaveChanges();
-                        MessageBox.Show($"Пользователь\n{new_customer.Name}\n- успешно зарегистрирован");
+                        MessageBox.Show($"Клиент\n{new_customer.Name}\n- успешно зарегистрирован");
                         textBoxName.Clear();
                         textBoxTel.Clear();
                         textBoxEmail.Clear();
@@ -43,6 +43,18 @@ namespace Manager.Сustomers
 
             }
             else MessageBox.Show($"Регистрация пользователя\n{new_customer}\n- не прошла");
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            UserCabinet userCabinet = new UserCabinet();
+            userCabinet.Show();
+            Hide();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
