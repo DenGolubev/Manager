@@ -81,6 +81,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationContext.cs" />
+    <Compile Include="Checking\CheckNames.cs" />
     <Compile Include="Exceptions\EmailException.cs" />
     <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
