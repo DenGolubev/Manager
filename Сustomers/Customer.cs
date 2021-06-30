@@ -17,7 +17,7 @@ namespace Manager
         public string Comments { get { return comments; } set { comments = value; } }
 
         public Customer() { }
-        public Customer(string name, string tel, string email = null, string communication_method = null, string comments = null)
+        public Customer(string name, string tel, string email, string communication_method = null, string comments = null)
         {
             this.name = CreateName(name);
             this.tel = CreateTel(tel);
@@ -28,7 +28,7 @@ namespace Manager
 
         public override string ToString()
         {
-            return $"Логин {Name}\nТелефон {Tel}\nПочта {Email}\nСпособ связи{CommunicationMethod}\nКомментарии{Comments}";
+            return $"Логин: {Name}\nТелефон: {Tel}\nПочта: {Email}\nСпособ связи: {CommunicationMethod}\nКомментарии: {Comments}";
         }
     }
 }

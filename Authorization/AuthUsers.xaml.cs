@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Manager.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,24 +29,31 @@ namespace Manager
 
         private void Button_Auth_Click(object sender, RoutedEventArgs e)
         {
-           
+
             string login = textBoxLogin.Text.Trim();
             string pass = passBox.Password.Trim();
-            try
-            {
-                using (db = new ApplicationContext())
-                {
-                    auth_user = db.Users.Where(user => user.Login == login && user.Pass == pass).FirstOrDefault();
-                }
 
-            }
-            catch (Exception ex)
+            if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(pass))
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    using (db = new ApplicationContext())
+                    {
+                        if (db.Users.Where(user => user.Login == login && user.Pass == pass).FirstOrDefault() == null) 
+                        {
+                            throw new ArgumentNullException($"Пользователь с таким логином\n{ login } и паролем {pass}\nв системе не зарегестрирован");
+                        }
+                        else auth_user = db.Users.Where(user => user.Login == login && user.Pass == pass).FirstOrDefault();
+                    }
+                }
+                catch (ArgumentNullException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            if (auth_user != null)
+            
+            if(auth_user != null)
             {
-                //MessageBox.Show($"Пользователь\n{auth_user.Login}\n- успешно авторизован");
                 UserCabinet cabinet = new UserCabinet();
                 cabinet.Show();
                 Hide();
@@ -63,6 +71,11 @@ namespace Manager
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Button_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

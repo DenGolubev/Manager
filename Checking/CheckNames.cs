@@ -6,7 +6,7 @@ namespace Manager.Checking
 {
     public class CheckNames
     {
-        private string login_mask = @"^[A-Za-z]+$";
+        private string login_mask = @"[^0-9]+$";
         private string pass_mask = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])\S{1,16}$";
         private string email_mask = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
         private string tel_mask = @"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$";
@@ -41,15 +41,23 @@ namespace Manager.Checking
 
         public string CreateEmail(string email)
         {
-            try
+            if(email != null)
             {
-                if (!Regex.IsMatch(email, email_mask)) throw new EmailException("Вы ввели email который не соответствует шаблону!");
+                try
+                {
+                    if (!Regex.IsMatch(email, email_mask)) throw new EmailException("Вы ввели email который не соответствует шаблону!");
+                }
+                catch (EmailException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    email = null;
+                }
             }
-            catch (EmailException ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-                email = null;
+                MessageBox.Show("Вы не ввели email клиента");
             }
+           
             return email;
         }
 

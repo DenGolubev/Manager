@@ -5,20 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Manager.Сustomers"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:src="clr-namespace:Manager.Collections"
         Title="CustomerCard" Height="450" Width="700" WindowStartupLocation="CenterScreen" AllowsTransparency="True" Background="Transparent" WindowStyle="None" MouseLeftButtonDown="Window_MouseLeftButtonDown">
-    <Grid>
-        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
+    <Grid Margin="0,0,0,-24">
+        <Border MinWidth="400" Margin="15,0,15,15" Background="White" VerticalAlignment="Bottom" Padding="30" MaxWidth="550" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
+                <StackPanel.Resources>
+                    <src:CommunicationsCollection x:Key="myCommunicationsCollection"/>
+                </StackPanel.Resources>
                 <TextBlock Text="Менеджер 1.0" Margin="10 0 10 0" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold"/>
                 <TextBlock Text="Карточка регистрации клиента" Margin="10 0 10 0" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
                 <TextBox x:Name="textBoxName"  Margin="10 0 10 0" Padding="10" materialDesign:HintAssist.Hint="Введите имя клиента" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox x:Name="textBoxTel"  Margin="10 0 10 0" Padding="10"  materialDesign:HintAssist.Hint="Введите телефон клиента" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox x:Name="textBoxEmail"  Margin="10 0 10 0" Padding="10"  materialDesign:HintAssist.Hint="Введите Email клиента" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <RichTextBox x:Name="rich_textBoxCustomerComment" Height="80" HorizontalAlignment="Center" Margin="10 0 10 0" Padding="10" materialDesign:HintAssist.Hint="Введите комментарий" Style="{StaticResource MaterialDesignRichTextBox}"/>
+                <ComboBox x:Name="comboCommunication"  Margin="10 0 10 0" Padding="10" IsEditable="True"  materialDesign:HintAssist.Hint="Выберите способ связи с клиентом" Style="{StaticResource MaterialDesignComboBox}" 
+                          ItemsSource="{StaticResource myCommunicationsCollection}"/>
+                <TextBox x:Name="textBoxComment" Margin="10 0 10 0" Padding="10" materialDesign:HintAssist.Hint="Введите комментарий" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                 <Grid Margin="0 0 0 20">
                     <Button x:Name="Button_Reg_Cust" Content="Регистрация" HorizontalAlignment="Left" Margin="20" Click="Button_Reg_Cust_Click"/>
                     <Button  x:Name="Exit" Content="Выход" HorizontalAlignment="Right" Margin="20" Click="Exit_Click"/>

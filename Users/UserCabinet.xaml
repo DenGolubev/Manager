@@ -15,29 +15,41 @@
             <StackPanel>
                 <TextBlock Text="Менеджер 1.0" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0 10 0 20"/>
                 <TextBlock Text="Кабинет пользователя" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
-                <Grid Margin="0 0 0 20"/>
-                <WrapPanel>
-                    <TabControl Height="Auto" Width="Auto">
-                        <TabItem Header="Покупатель">
-                            <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
-                                <Button x:Name="ButtonAddCustomer" Content="Добавить покупателя" Margin="5" Padding="5" Click="Button_Add_Customer_Click"/>
-                                <Button x:Name="Button2" Content="Карточка покупателя" Margin="5" Padding="5"/>
-                            </WrapPanel>
-                        </TabItem>
-                        <TabItem Header="Оформление заказа">
-                            <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
-                                <Button x:Name="Button3" Content="Оформить заказ" Margin="5" Padding="5"/>
-                                <Button x:Name="Button4" Content="Распечатать чек" Margin="5" Padding="5"/>
-                            </WrapPanel>
-                        </TabItem>
-                        <TabItem Header="Закупка">
-                            <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
-                                <Button x:Name="Button5" Content="Внести" Margin="5" Padding="5"/>
-                                <Button x:Name="Button6" Content="Отчет" Margin="5" Padding="5"/>
-                            </WrapPanel>
-                        </TabItem>
-                    </TabControl>
-                </WrapPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <WrapPanel Grid.Column="0">
+                        <TabControl Height="Auto" Width="Auto">
+                            <TabItem Header="Покупатель">
+                                <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
+                                    <Button x:Name="ButtonAddCustomer" Content="Добавить покупателя" Margin="5" Padding="5" Click="Button_Add_Customer_Click"/>
+                                    <Button x:Name="Button2" Content="Карточка покупателя" Margin="5" Padding="5"/>
+                                </WrapPanel>
+                            </TabItem>
+                            <TabItem Header="Оформление заказа">
+                                <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
+                                    <Button x:Name="Button3" Content="Оформить заказ" Margin="5" Padding="5"/>
+                                    <Button x:Name="Button4" Content="Распечатать чек" Margin="5" Padding="5"/>
+                                </WrapPanel>
+                            </TabItem>
+                            <TabItem Header="Закупка">
+                                <WrapPanel Background="#FFE5E5E5" Orientation="Vertical">
+                                    <Button x:Name="Button5" Content="Внести" Margin="5" Padding="5"/>
+                                    <Button x:Name="Button6" Content="Отчет" Margin="5" Padding="5"/>
+                                </WrapPanel>
+                            </TabItem>
+                        </TabControl>
+                    </WrapPanel>
+                    <ScrollViewer Name="scroll" CanContentScroll="True" Height="150" Grid.Column="1">
+                        <ListBox x:Name="CustomersList" Grid.Column="1"/>
+                    </ScrollViewer>
+                    
+                </Grid>
             </StackPanel>
         </Border>
     </Grid>

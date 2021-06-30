@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Windows;
+using System.Linq;
+using Manager.Exceptions;
+using System.Windows.Controls;
+using Manager.Collections;
 
 namespace Manager.Сustomers
 {
@@ -19,28 +23,34 @@ namespace Manager.Сustomers
             string name = textBoxName.Text.Trim();
             string tel = textBoxTel.Text.Trim();
             string email = textBoxEmail.Text.Trim().ToLower();
-            Customer new_customer = new Customer(name, tel, email);
+            string communication = comboCommunication.Text.Trim();
+            string comments = textBoxComment.Text.Trim();
+            Customer new_customer = new Customer(name, tel, email, communication, comments);
             if (new_customer.Name != null && new_customer.Tel != null && new_customer.Email != null)
             {
-                try
+                using (db = new ApplicationContext())
                 {
-                    using (db = new ApplicationContext())
+                    try
                     {
-                        db.Customers.Add(new_customer);
-                        db.SaveChanges();
-                        MessageBox.Show($"Клиент\n{new_customer.Name}\n- успешно зарегистрирован");
-                        textBoxName.Clear();
-                        textBoxTel.Clear();
-                        textBoxEmail.Clear();
-                        textBoxName.Focus();
+                        if (db.Customers.FirstOrDefault(customer => customer.Tel == tel) == null)
+                        {
+                            db.Customers.Add(new_customer);
+                            db.SaveChanges();
+                            MessageBox.Show($"Клиент\n{new_customer.Name}\n- успешно зарегистрирован");
+                        }
+                        else throw new DuplicateExeption($"Клиент\n{ new_customer.Name }\nс данным номера телефона {new_customer.Tel} - уже зарегистрирован в системе");
                     }
-
+                    catch (DuplicateExeption ex) 
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    
+                    textBoxName.Clear();
+                    textBoxTel.Clear();
+                    textBoxEmail.Clear();
+                    textBoxComment.Clear();
+                    textBoxName.Focus();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
             }
             else MessageBox.Show($"Регистрация пользователя\n{new_customer}\n- не прошла");
         }
