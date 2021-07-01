@@ -15,9 +15,9 @@ namespace Manager.Checking
         {
             try
             {
-                if (!Regex.IsMatch(name, login_mask)) throw new LoginExeption("Вы ввели логин который не соответствует шаблону!");
+                if (!Regex.IsMatch(name, login_mask)) throw new MyRegistertNameException(name, string.Format($"Вы ввели логин {name} который не соответствует шаблону!"));
             }
-            catch(LoginExeption ex)
+            catch(MyRegistertNameException ex)
             {
                 MessageBox.Show(ex.Message);
                 name = null;
@@ -29,9 +29,9 @@ namespace Manager.Checking
         {
             try
             {
-                if (!Regex.IsMatch(pass, pass_mask)) throw new PassException("Вы ввели пароль который не соответствует шаблону!");
+                if (!Regex.IsMatch(pass, pass_mask)) throw new MyRegistertNameException(pass, string.Format($"Вы ввели пароль {pass} который не соответствует шаблону!"));
             }
-            catch(PassException ex)
+            catch(MyRegistertNameException ex)
             {
                 MessageBox.Show(ex.Message);
                 pass = null;
@@ -45,9 +45,9 @@ namespace Manager.Checking
             {
                 try
                 {
-                    if (!Regex.IsMatch(email, email_mask)) throw new EmailException("Вы ввели email который не соответствует шаблону!");
+                    if (!Regex.IsMatch(email, email_mask)) throw new MyRegistertNameException(email, string.Format($"Вы ввели email {email} который не соответствует шаблону!"));
                 }
-                catch (EmailException ex)
+                catch (MyRegistertNameException ex)
                 {
                     MessageBox.Show(ex.Message);
                     email = null;
@@ -65,9 +65,9 @@ namespace Manager.Checking
         {
             try
             {
-                if (!Regex.IsMatch(tel, tel_mask)) throw new TelException("Вы ввели номер телефона который не соответствует шаблону!");
+                if (!Regex.IsMatch(tel, tel_mask)) throw new MyRegistertNameException(tel, string.Format($"Вы ввели номер телефона {tel} который не соответствует шаблону!"));
             }
-            catch (EmailException ex)
+            catch (MyRegistertNameException ex)
             {
                 MessageBox.Show(ex.Message);
                 tel = null;
