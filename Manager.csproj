@@ -65,10 +65,9 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.1.0.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignThemes.4.1.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -94,9 +93,14 @@
       <DependentUpon>AuthUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Checking\CheckNames.cs" />
+    <Compile Include="Collections\CelebrationCollection.cs" />
     <Compile Include="Collections\CommunicationsCollection.cs" />
+    <Compile Include="Collections\DeliveryCollection.cs" />
     <Compile Include="Exceptions\MyException.cs" />
     <Compile Include="Orders\OrderCard.cs" />
+    <Compile Include="Orders\OrderWindow.xaml.cs">
+      <DependentUpon>OrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserCabinet.xaml.cs">
       <DependentUpon>UserCabinet.xaml</DependentUpon>
@@ -106,6 +110,10 @@
       <DependentUpon>CustomerCard.xaml</DependentUpon>
     </Compile>
     <Page Include="Authorization\AuthUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orders\OrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,7 +156,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Fakes Include="Fakes\System.Data.SQLite.fakes" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

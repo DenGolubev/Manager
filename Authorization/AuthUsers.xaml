@@ -19,8 +19,8 @@
                     <Button x:Name="Button_Reg" HorizontalAlignment="Left" Content="Регистрация" MinWidth="100" Click="Button_Reg_Click"/>
                     <Button x:Name="Button_Exit" HorizontalAlignment="Right" Content="Выход" Click="Button_Exit_Click"/>
                 </Grid>
-                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox x:Name="passBox" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" GotFocus="textBoxLogin_GotFocus"/>
+                <PasswordBox x:Name="passBox" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" GotFocus="passBox_GotFocus"/>
                 <Button Content="Авторизоваться" Margin="0 20" Click="Button_Auth_Click"/>
             </StackPanel>
         </Border>

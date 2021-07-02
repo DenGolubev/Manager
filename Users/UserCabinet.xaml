@@ -46,7 +46,7 @@
                         </TabControl>
                     </WrapPanel>
                     <ScrollViewer Name="scroll" CanContentScroll="True" Height="150" Grid.Column="1">
-                        <ListBox x:Name="CustomersList" Grid.Column="1"/>
+                        <ListBox x:Name="CustomersList" Grid.Column="1" SelectionChanged="CustomersList_SelectionChanged"/>
                     </ScrollViewer>
                     
                 </Grid>

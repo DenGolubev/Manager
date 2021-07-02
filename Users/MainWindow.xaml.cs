@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Manager
 {
@@ -67,6 +68,26 @@ namespace Manager
         private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void textBoxLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(textBoxLogin, new System.Globalization.CultureInfo("en_US"));
+        }
+
+        private void passBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(passBox, new System.Globalization.CultureInfo("en_US"));
+        }
+
+        private void passBox_reply_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(passBox_reply, new System.Globalization.CultureInfo("en_US"));
+        }
+
+        private void textBoxEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(textBoxEmail, new System.Globalization.CultureInfo("en_US"));
         }
     }
 }

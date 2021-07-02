@@ -4,6 +4,7 @@ using System.Linq;
 using Manager.Exceptions;
 using System.Windows.Controls;
 using Manager.Collections;
+using System.Windows.Input;
 
 namespace Manager.Сustomers
 {
@@ -38,9 +39,9 @@ namespace Manager.Сustomers
                             db.SaveChanges();
                             MessageBox.Show($"Клиент\n{new_customer.Name}\n- успешно зарегистрирован");
                         }
-                        else throw new DuplicateExeption($"Клиент\n{ new_customer.Name }\nс данным номера телефона {new_customer.Tel} - уже зарегистрирован в системе");
+                        else throw new MyRegistertNameException($"Клиент\n{ new_customer.Name }\nс данным номера телефона {new_customer.Tel} - уже зарегистрирован в системе");
                     }
-                    catch (DuplicateExeption ex) 
+                    catch (MyRegistertNameException ex) 
                     {
                         Console.WriteLine(ex.Message);
                     }
@@ -62,9 +63,24 @@ namespace Manager.Сustomers
             Hide();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void textBoxName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(textBoxName, new System.Globalization.CultureInfo("en_US"));
+        }
+
+        private void textBoxEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(textBoxEmail, new System.Globalization.CultureInfo("en_US"));
+        }
+
+        private void textBoxComment_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(textBoxComment, new System.Globalization.CultureInfo("ru-RU"));
         }
     }
 }

@@ -77,5 +77,15 @@ namespace Manager
         {
             Environment.Exit(0);
         }
+
+        private void textBoxLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(textBoxLogin, new System.Globalization.CultureInfo("en_US"));
+        }
+
+        private void passBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            InputLanguageManager.SetInputLanguage(passBox, new System.Globalization.CultureInfo("en_US"));
+        }
     }
 }

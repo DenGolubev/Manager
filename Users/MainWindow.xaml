@@ -17,10 +17,10 @@
                 <Grid Margin="0 0 0 20">
                     <Button HorizontalAlignment="Right" Content="Вход" MinWidth="100" Click="Button_Auth_Click"/>
                 </Grid>
-                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox x:Name="passBox" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <PasswordBox x:Name="passBox_reply" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Введите Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" GotFocus="textBoxLogin_GotFocus"/>
+                <PasswordBox x:Name="passBox" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" GotFocus="passBox_GotFocus"/>
+                <PasswordBox x:Name="passBox_reply" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" GotFocus="passBox_reply_GotFocus"/>
+                <TextBox x:Name="textBoxEmail" materialDesign:HintAssist.Hint="Введите Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" GotFocus="textBoxEmail_GotFocus"/>
                 <Button Content="Зарегистрироваться" Margin="0 20" Click="Button_Reg_Click"/>
             </StackPanel>
         </Border>

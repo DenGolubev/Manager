@@ -1,4 +1,5 @@
-﻿using Manager.Сustomers;
+﻿using Manager.Orders;
+using Manager.Сustomers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -11,6 +12,8 @@ namespace Manager
     public partial class UserCabinet : Window
     {
         ApplicationContext db;
+        public static Customer SelectedCustomer { get; private set; }
+
         public UserCabinet()
         {
             InitializeComponent();
@@ -39,6 +42,18 @@ namespace Manager
             using (db = new ApplicationContext())
             {
                 CustomersList.ItemsSource = db.Customers.ToList();
+            }
+        }
+
+        private void CustomersList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            OrderWindow orderWindow = new OrderWindow();
+            var selected_customer = (Customer)CustomersList.SelectedItem;
+            if (selected_customer != null)
+            {
+                SelectedCustomer = selected_customer;
+                orderWindow.Show();
+                Hide();
             }
         }
     }
