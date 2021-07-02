@@ -44,5 +44,12 @@ namespace Manager.Orders
         {
             InputLanguageManager.SetInputLanguage(textBox_Email, new System.Globalization.CultureInfo("ru-RU"));
         }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            UserCabinet cabinet = new UserCabinet();
+            cabinet.Show();
+            Hide();
+        }
     }
 }

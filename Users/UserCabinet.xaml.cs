@@ -1,6 +1,8 @@
 ﻿using Manager.Orders;
 using Manager.Сustomers;
-using System.Collections.Generic;
+using System;
+using System.Windows.Input;
+using System.Windows.Controls;
 using System.Linq;
 using System.Windows;
 
@@ -32,7 +34,7 @@ namespace Manager
             Hide();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
         }
@@ -45,7 +47,7 @@ namespace Manager
             }
         }
 
-        private void CustomersList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void CustomersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             OrderWindow orderWindow = new OrderWindow();
             var selected_customer = (Customer)CustomersList.SelectedItem;
@@ -55,6 +57,19 @@ namespace Manager
                 orderWindow.Show();
                 Hide();
             }
+        }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void CustomersList_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (e.Delta > 0)
+                scroll.LineUp();
+            else
+                scroll.LineDown();
         }
     }
 }

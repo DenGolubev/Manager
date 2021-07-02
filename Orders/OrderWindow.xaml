@@ -65,7 +65,15 @@
                 <Label x:Name="lableDeliveryCost" Content="Стоимость доставки"  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10,20,320,176" Height="34" Grid.Column="0" Grid.Row="2"/>
                 <TextBox x:Name="textBoxDeliveryCost" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Стоимость доставки" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right" FontFamily="Arial" FontSize="20"
                          Foreground="DarkViolet" BorderThickness="1" BorderBrush="Black" Margin="230,10,0,166" Width="158"/>
-                <Label x:Name="lableCurencyt" Content="руб."  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="393,20,99,176" Height="34" Grid.Column="0" Grid.Row="2"/>
+                <Label x:Name="lableDeliveryCurency" Content="руб."  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="393,20,99,176" Height="34" Grid.Column="0" Grid.Row="2"/>
+                <Label x:Name="lablePrepay" Content="Предоплата"  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10,69,320,127" Height="34" Grid.Column="0" Grid.Row="2"/>
+                <TextBox x:Name="textBoxPrepay" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Предоплата" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right" FontFamily="Arial" FontSize="20"
+                    Foreground="DarkViolet" BorderThickness="1" BorderBrush="Black" Margin="230,70,0,127" Width="158"/>
+                <Label x:Name="lableCurencyPrepay" Content="руб."  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="393,69,99,127" Height="34" Grid.Column="0" Grid.Row="2"/>
+                <Button x:Name="buttonSetOrder" Content="Оформить" BorderThickness="1" BorderBrush="Black" FontFamily="Arial" FontSize="20" FontWeight="Bold" Width="151" HorizontalAlignment="Left" 
+                        Margin="10,165,0,10" Style="{StaticResource MaterialDesignFlatButton}" Grid.Row="2" Height="Auto"/>
+                <Button x:Name="buttonExit" Content="Выход" BorderThickness="1" BorderBrush="Black" FontFamily="Arial" FontSize="20" FontWeight="Bold" Width="151" HorizontalAlignment="Left" 
+                    Margin="384,165,0,10" Style="{StaticResource MaterialDesignFlatButton}" Grid.Row="2" Height="Auto" Grid.Column="1" Click="buttonExit_Click"/>
             </Grid>
         </Border>
     </Grid>
