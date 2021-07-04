@@ -98,7 +98,16 @@
     <Compile Include="Collections\CommunicationsCollection.cs" />
     <Compile Include="Collections\DeliveryCollection.cs" />
     <Compile Include="Exceptions\MyException.cs" />
-    <Compile Include="Orders\OrderCard.cs" />
+    <Compile Include="Migrations\202106272050046_InitialCreate.cs" />
+    <Compile Include="Migrations\202106272050046_InitialCreate.designer.cs">
+      <DependentUpon>202106272050046_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107042142525_AddOrderMigration.cs" />
+    <Compile Include="Migrations\202107042142525_AddOrderMigration.designer.cs">
+      <DependentUpon>202107042142525_AddOrderMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Orders\Order.cs" />
     <Compile Include="Orders\OrderWindow.xaml.cs">
       <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
@@ -153,6 +162,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202106272050046_InitialCreate.resx">
+      <DependentUpon>202106272050046_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107042142525_AddOrderMigration.resx">
+      <DependentUpon>202107042142525_AddOrderMigration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
