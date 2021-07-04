@@ -21,7 +21,7 @@
                 </Grid>
                 <TextBox x:Name="textBoxLogin" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}" GotFocus="textBoxLogin_GotFocus"/>
                 <PasswordBox x:Name="passBox" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" GotFocus="passBox_GotFocus"/>
-                <Button Content="Авторизоваться" Margin="0 20" Click="Button_Auth_Click"/>
+                <Button x:Name="buttonAuthorization" Content="Авторизоваться" Margin="0 20" Click="buttonAuthorization_Click"/>
             </StackPanel>
         </Border>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using Manager.Exceptions;
+﻿using Manager.Authorization;
+using Manager.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Globalization;
 
 namespace Manager
 {
@@ -21,44 +23,25 @@ namespace Manager
     public partial class AuthUsers : Window
     {
         User auth_user { get; set; }
-        ApplicationContext db;
+        AuthUser user;
         public AuthUsers()
         {
             InitializeComponent();
         }
 
-        private void Button_Auth_Click(object sender, RoutedEventArgs e)
+        
+        private void buttonAuthorization_Click(object sender, RoutedEventArgs e)
         {
+            user = new AuthUser(textBoxLogin.Text, passBox.Password);
+            auth_user = user.User;
 
-            string login = textBoxLogin.Text.Trim();
-            string pass = passBox.Password.Trim();
-
-            if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(pass))
-            {
-                try
-                {
-                    using (db = new ApplicationContext())
-                    {
-                        if (db.Users.Where(user => user.Login == login && user.Pass == pass).FirstOrDefault() == null) 
-                        {
-                            throw new ArgumentNullException($"Пользователь с таким логином\n{ login } и паролем {pass}\nв системе не зарегестрирован");
-                        }
-                        else auth_user = db.Users.Where(user => user.Login == login && user.Pass == pass).FirstOrDefault();
-                    }
-                }
-                catch (ArgumentNullException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            
-            if(auth_user != null)
+            if (auth_user != null)
             {
                 UserCabinet cabinet = new UserCabinet();
                 cabinet.Show();
                 Hide();
             }
-            else MessageBox.Show($"Авторизация пользователя\n{login} - не прошла");
+            else MessageBox.Show($"Авторизация пользователя\n{user} - не прошла");
         }
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
@@ -80,12 +63,14 @@ namespace Manager
 
         private void textBoxLogin_GotFocus(object sender, RoutedEventArgs e)
         {
-            InputLanguageManager.SetInputLanguage(textBoxLogin, new System.Globalization.CultureInfo("en_US"));
+            InputLanguageManager.SetInputLanguage(textBoxLogin, new CultureInfo("en_US"));
         }
 
         private void passBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            InputLanguageManager.SetInputLanguage(passBox, new System.Globalization.CultureInfo("en_US"));
+            InputLanguageManager.SetInputLanguage(passBox, new CultureInfo("en_US"));
         }
+
+        
     }
 }
