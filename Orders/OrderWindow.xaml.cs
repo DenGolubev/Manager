@@ -28,10 +28,6 @@ namespace Manager.Orders
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            textBoxName.Text = UserCabinet.SelectedCustomer.Name;
-            textBoxTelefon.Text = UserCabinet.SelectedCustomer.Tel;
-            textBox_Email.Text = UserCabinet.SelectedCustomer.Email;
-            textBoxCustomerID.Text = Convert.ToString(get_Customer_id(textBoxName.Text, textBoxTelefon.Text, textBox_Email.Text));
         }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
