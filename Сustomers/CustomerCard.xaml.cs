@@ -45,12 +45,9 @@ namespace Manager.Сustomers
                     {
                         Console.WriteLine(ex.Message);
                     }
-                    
-                    textBoxName.Clear();
-                    textBoxTel.Clear();
-                    textBoxEmail.Clear();
-                    textBoxComment.Clear();
-                    textBoxName.Focus();
+                    UserCabinet userCabinet = new UserCabinet();
+                    userCabinet.Show();
+                    Hide();
                 }
             }
             else MessageBox.Show($"Регистрация пользователя\n{new_customer}\n- не прошла");
