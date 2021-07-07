@@ -94,12 +94,12 @@ namespace Manager
                         customer = gridCustomers.SelectedItems[i] as Customer;
                     }
                 }
-                OrderWindow orderWindow = new OrderWindow();
-                orderWindow.textBoxName.Text = customer.Name;
-                orderWindow.textBoxTelefon.Text = customer.Tel;
-                orderWindow.textBox_Email.Text = customer.Email;
-                orderWindow.textBoxCustomerID.Text = Convert.ToString(customer.id);
-                orderWindow.Show();
+                OrderCustumer orderCustumer = new OrderCustumer();
+                orderCustumer.textBoxName.Text = customer.Name;
+                orderCustumer.textBoxTelefon.Text = customer.Tel;
+                orderCustumer.textBox_Email.Text = customer.Email;
+                orderCustumer.textBoxCustomerID.Text = Convert.ToString(customer.id);
+                orderCustumer.Show();
                 Hide();
             }
                 

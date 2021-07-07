@@ -29,16 +29,12 @@ namespace Manager.Orders
 
         private void gridOrders_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //using (db = new ApplicationContext())
-            //{
-            //    db.Orders.Load();
-            //    gridOrders.ItemsSource =db.Orders.Local.ToBindingList();
-            //}
+
         }
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
@@ -67,6 +63,33 @@ namespace Manager.Orders
                 db.SaveChanges();
                 db.Orders.Load();
                 gridOrders.ItemsSource = db.Customers.Local.ToBindingList();
+            }
+        }
+        private void gridOrders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            using (db = new ApplicationContext())
+            {
+                if (gridOrders.SelectedItems.Count > 0)
+                {
+                    for (int i = 0; i < gridOrders.SelectedItems.Count; i++)
+                    {
+                        Order order = gridOrders.SelectedItems[i] as Order;
+                        Order info = db.Orders.Where(t => t.id == order.id).FirstOrDefault();
+                        if (info != null)
+                        {
+                            OrderCustumer orderCustumer = new OrderCustumer();
+                            orderCustumer.textBoxDeliveryCost.Text = Convert.ToString(info.DeliveryAmount);
+                            orderCustumer.textBoxPrepay.Text = Convert.ToString(info.Prepayment);
+                            orderCustumer.textBoxCakePrice.Text = Convert.ToString(info.CakePrice);
+                            orderCustumer.textBoxTotalPrice.Text = Convert.ToString(info.TotalPrice);
+                            orderCustumer.textBoxCustomerID.Text = Convert.ToString(info.CustomerId);
+                            orderCustumer.Show();
+                            Hide();
+                        }
+                        else MessageBox.Show("Заказов не найдено");
+                    }
+                }
+                else MessageBox.Show("Не выбран покупатель");
             }
         }
     }

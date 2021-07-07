@@ -131,6 +131,10 @@
     <Compile Include="Migrations\202107070940358_AddOrderMigration1.designer.cs">
       <DependentUpon>202107070940358_AddOrderMigration1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107072136081_AddOrderMigration2.cs" />
+    <Compile Include="Migrations\202107072136081_AddOrderMigration2.designer.cs">
+      <DependentUpon>202107072136081_AddOrderMigration2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders\Order.cs" />
     <Compile Include="Orders\OrderCustumer.xaml.cs">
@@ -138,9 +142,6 @@
     </Compile>
     <Compile Include="Orders\OrdersList.xaml.cs">
       <DependentUpon>OrdersList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\OrderMaking.xaml.cs">
-      <DependentUpon>OrderMaking.xaml</DependentUpon>
     </Compile>
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserCabinet.xaml.cs">
@@ -159,10 +160,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Orders\OrdersList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Orders\OrderMaking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107070940358_AddOrderMigration1.resx">
       <DependentUpon>202107070940358_AddOrderMigration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107072136081_AddOrderMigration2.resx">
+      <DependentUpon>202107072136081_AddOrderMigration2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

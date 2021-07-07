@@ -7,7 +7,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:src="clr-namespace:Manager.Collections"
         mc:Ignorable="d"
-        Title="Страница просмотра и редактирования заказа" Height="800" Width="1200" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="Страница просмотра и редактирования заказа" Height="800" Width="1200" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" Loaded="Window_Loaded">
     <Grid>
         <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20" Height="750" Width="1150">
             <Border.Effect>
@@ -24,8 +25,8 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Менеджер 1.0" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,10,0,190" Grid.ColumnSpan="2" Grid.Row="0"/>
-                <TextBlock Text="СТРАНИЦА ПРОСМОТРА И РЕДАКТИРОВАНИЯ ЗАКАЗА" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0,50,0,132" Grid.ColumnSpan="2" Grid.Row="0"/>
-                <TextBox x:Name="textBoxCustomerID" Grid.Row="0" Grid.Column="0" Height="32" Margin="10,10,449,188"/>
+                <TextBlock Text="СТРАНИЦА СОЗДАНИЯ И РЕДАКТИРОВАНИЯ ЗАКАЗА" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="0,50,0,132" Grid.ColumnSpan="2" Grid.Row="0"/>
+                <TextBox x:Name="textBoxCustomerID" Grid.Row="0" Grid.Column="0" Height="32" Margin="10,10,449,188" />
                 <Label x:Name="lableDateIn" Content="Дата заказа" HorizontalAlignment="Left"  Margin="475,103,0,95" Grid.Column="0" FontSize="20" FontFamily="Arial" FontWeight="Bold" Grid.ColumnSpan="2"/>
                 <DatePicker x:Name="datePickerIn"  FirstDayOfWeek="Monday" Foreground="DarkViolet" HorizontalAlignment="Center" IsDropDownOpen="False" SelectedDateFormat="Short" Grid.Row="0" Grid.ColumnSpan="2" 
                             materialDesign:HintAssist.Hint="Выберите дату поступления заказа" Margin="366,140,365,58" Height="32" FontSize="20" FontFamily="Arial" Width="359" TabIndex="1"/>
@@ -71,10 +72,10 @@
                 <TextBox x:Name="textBoxPrepay" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Предоплата" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right" FontFamily="Arial" FontSize="20"
                     Foreground="DarkViolet" BorderThickness="1" BorderBrush="Black" Margin="230,70,0,127" Width="158" TabIndex="7"/>
                 <Label x:Name="lableCurencyPrepay" Content="руб."  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="393,69,99,127" Height="34" Grid.Column="0" Grid.Row="2"/>
-                <Button x:Name="buttonSaveOrder" Content="Внести изменения" BorderThickness="1" BorderBrush="Black" FontFamily="Arial" FontSize="20" FontWeight="Bold" Width="231" HorizontalAlignment="Left" 
-                        Margin="10,165,0,10" Style="{StaticResource MaterialDesignFlatButton}" Grid.Row="2" Height="Auto" TabIndex="11"/>
+                <Button x:Name="buttonSaveOrder" Content="Сохранить" BorderThickness="1" BorderBrush="Black" FontFamily="Arial" FontSize="20" FontWeight="Bold" Width="151" HorizontalAlignment="Left" 
+                        Margin="10,165,0,10" Style="{StaticResource MaterialDesignFlatButton}" Grid.Row="2" Height="Auto" TabIndex="11" Click="buttonSaveOrder_Click"/>
                 <Button x:Name="buttonExit" Content="Выход" BorderThickness="1" BorderBrush="Black" FontFamily="Arial" FontSize="20" FontWeight="Bold" Width="151" HorizontalAlignment="Left" 
-                    Margin="384,165,0,10" Style="{StaticResource MaterialDesignFlatButton}" Grid.Row="2" Height="Auto" Grid.Column="1"/>
+                    Margin="384,165,0,10" Style="{StaticResource MaterialDesignFlatButton}" Grid.Row="2" Height="Auto" Grid.Column="1" Click="buttonExit_Click"/>
                 <Label x:Name="lableCakePrice" Content="Стоимость торта"  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="10,115,320,81" Height="34" Grid.Column="0" Grid.Row="2"/>
                 <TextBox x:Name="textBoxCakePrice" Grid.Row="2" Grid.Column="0" materialDesign:HintAssist.Hint="Стоимость торта" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right" FontFamily="Arial" 
                          FontSize="20" Foreground="DarkViolet" BorderThickness="1" BorderBrush="Black" Margin="230,116,0,81" Width="158" TabIndex="8"/>
@@ -83,10 +84,10 @@
                 <TextBox x:Name="textBoxOrderCost" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Стоимость заказа" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right" FontFamily="Arial" FontSize="20"
                     Foreground="DarkViolet" BorderThickness="1" BorderBrush="Black" Margin="283,20,0,176" Width="158"/>
                 <Label x:Name="lableCurencyOrderCost" Content="руб."  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="446,20,46,176" Height="34" Grid.Column="1" Grid.Row="2"/>
-                <Label x:Name="lableTotalCost" Content="Итого к оплате"  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="63,70,267,126" Height="34" Grid.Column="1" Grid.Row="2"/>
-                <TextBox x:Name="textBoxTotalCost" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Итого к оплате" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right" FontFamily="Arial" FontSize="20"
+                <Label x:Name="lableTotalPrice" Content="Итого к оплате"  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="63,70,267,126" Height="34" Grid.Column="1" Grid.Row="2"/>
+                <TextBox x:Name="textBoxTotalPrice" Grid.Row="2" Grid.Column="1" materialDesign:HintAssist.Hint="Итого к оплате" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Right" FontFamily="Arial" FontSize="20"
                     Foreground="DarkViolet" BorderThickness="1" BorderBrush="Black" Margin="283,71,0,126" Width="158"/>
-                <Label x:Name="lableCurencyTotalCost" Content="руб."  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="446,70,46,126" Height="34" Grid.Column="1" Grid.Row="2"/>
+                <Label x:Name="lableCurencyTotalPrice" Content="руб."  FontSize="20" FontFamily="Arial" FontWeight="Bold" Margin="446,70,46,126" Height="34" Grid.Column="1" Grid.Row="2"/>
             </Grid>
         </Border>
     </Grid>

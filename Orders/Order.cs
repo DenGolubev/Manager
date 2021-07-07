@@ -18,6 +18,8 @@ namespace Manager.Orders
         double order_amount;
         double delivery_amount;
         double prepayment;
+        double cake_price;
+        double total_price;
         string celebration;
         DateTime date_in;
         int customer_id;
@@ -30,18 +32,20 @@ namespace Manager.Orders
         public double OrderAmount { get { return order_amount; } set { order_amount = value; } } //Сумма заказа
         public double DeliveryAmount { get { return delivery_amount; } set { delivery_amount = value; } } // Стоимость доставки
         public double Prepayment { get { return prepayment; } set { prepayment = value; } } //Предоплата
+        public double CakePrice { get { return cake_price; } set { cake_price = value; } } //Стоимость торта
+        public double TotalPrice { get { return total_price; } set { total_price = value; } } //Всего к оплате
         public string Celebration { get { return celebration; } set { celebration = value; } } //На какое тожество
         public DateTime DateIn { get { return date_in; } set { date_in = value; } } //Дата поступления
         public int CustomerId { get { return customer_id; } set { customer_id = value; } } //id Покупателя
 
         public Order() { }
 
-        public Order( DateTime date_out, string order_composition, string delivery_method, string communication_method, double order_amount, double delivery_amount, double prepayment, string celebration,
-            DateTime date_in, int customer_id, bool status = false)
+        public Order( DateTime date_out, string order_composition, string delivery_method, string communication_method, double order_amount, double delivery_amount, double prepayment, double cake_price, double total_price,
+            string celebration,DateTime date_in, int customer_id, bool status = false)
         {
             this.status = status; 
             this.date_out = date_out; this.order_composition = order_composition; this.delivery_method = delivery_method; this.communication_method = communication_method;
-            this.order_amount = order_amount; this.delivery_amount = delivery_amount; this.prepayment = prepayment; this.celebration = celebration; this.date_in = date_in; this.customer_id = customer_id;
+            this.order_amount = order_amount; this.delivery_amount = delivery_amount; this.prepayment = prepayment; this.cake_price = cake_price; this.total_price = total_price; this.celebration = celebration; this.date_in = date_in; this.customer_id = customer_id;
         }
     }
 }
