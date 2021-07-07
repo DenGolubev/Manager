@@ -30,12 +30,15 @@
                     <WrapPanel Margin="10,88,10,10" Grid.Row="0" Grid.ColumnSpan="2" Height="Auto" Orientation="Horizontal">
                         <Button x:Name="buttonAddCustomer" Content="Добавить покупателя" Margin="5" Padding="5" BorderThickness="1" BorderBrush="Black" Style="{StaticResource MaterialDesignFlatButton}" 
                                             Grid.Column="0" Grid.Row="1" Click="Button_Add_Customer_Click" />
-                        <Button x:Name="buttonCustomerCard" Content="Карточка покупателя" Margin="5" Padding="5" BorderThickness="1" BorderBrush="Black" Style="{StaticResource MaterialDesignFlatButton}" 
-                            Grid.Row="1" Width="160"/>
+                        <Button x:Name="buttonOrderCard" Content="Список заказов" Margin="5" Padding="5" BorderThickness="1" BorderBrush="Black" Style="{StaticResource MaterialDesignFlatButton}" 
+                            Grid.Row="1" Width="160" Click="buttonOrderCard_Click"/>
+                        <Button x:Name="buttonAllOrderCard" Content="Список всех заказов" Margin="5" Padding="5" BorderThickness="1" BorderBrush="Black" Style="{StaticResource MaterialDesignFlatButton}" 
+                            Grid.Row="1" Width="160" Click="buttonAllOrderCard_Click"/>
                     </WrapPanel>
                     <WrapPanel HorizontalAlignment="Center" Grid.Column="1" Grid.RowSpan="2" Grid.Row="1" Grid.ColumnSpan ="2"  Margin="5"/>
                     <ScrollViewer Name="scroll" CanContentScroll="True" Grid.RowSpan="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,10,0,10">
-                        <DataGrid x:Name="gridCustomers" AutoGenerateColumns="True"  Loaded="gridCustomers_Loaded" ItemsSource="{Binding}" IsReadOnly="True" MouseDoubleClick="gridCustomers_MouseDoubleClick" Height="237" Width="737"/>
+                        <DataGrid x:Name="gridCustomers" AutoGenerateColumns="True"  Loaded="gridCustomers_Loaded" ItemsSource="{Binding}" IsReadOnly="True" MouseDoubleClick="gridCustomers_MouseDoubleClick" 
+                                  Height="237" Width="737"/>
                     </ScrollViewer>
                     <Button x:Name="buttonExit" Content="Выход" BorderThickness="1" BorderBrush="Black" FontFamily="Arial" FontSize="20" FontWeight="Bold" Width="141" HorizontalAlignment="Right" VerticalAlignment="Top"
                             Style="{StaticResource MaterialDesignFlatButton}" Click="buttonExit_Click" Margin="0,17,5,0" Grid.Column="1"/>

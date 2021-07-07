@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Manager.Orders
 {
-    class Order
+    public class Order
     {
         public int id { get; set; }
         bool status;
@@ -21,27 +22,26 @@ namespace Manager.Orders
         DateTime date_in;
         int customer_id;
 
-        public bool Status => status; //Статус выполнения
-        public DateTime DateOut => date_out; //Дата готовности
-        public string OrderComposition => order_composition; //Состав заказа
-        public string DeliveryMethod => delivery_method; //Способ доставки
-        public string CommunicationMethod => communication_method; //Способ связи
-        public double OrderAmount => order_amount; //Сумма заказа
-        public double DeliveryAmount => delivery_amount; // Стоимость доставки
-        public double Prepayment => prepayment; //Предоплата
-        public string Celebration => celebration; //На какое тожество
-        public DateTime DateIn => date_in; //Дата поступления
-        public int CustomerId => customer_id; //id Покупателя
+        public bool Status { get { return status; } set { status = value; } } //Статус выполнения
+        public DateTime DateOut { get { return date_out; } set { date_out = value; } } //Дата готовности
+        public string OrderComposition { get { return order_composition; } set { order_composition = value; } } //Состав заказа
+        public string DeliveryMethod { get { return delivery_method; } set { delivery_method = value; } } //Способ доставки
+        public string CommunicationMethod { get { return communication_method; } set { communication_method = value; } } //Способ связи
+        public double OrderAmount { get { return order_amount; } set { order_amount = value; } } //Сумма заказа
+        public double DeliveryAmount { get { return delivery_amount; } set { delivery_amount = value; } } // Стоимость доставки
+        public double Prepayment { get { return prepayment; } set { prepayment = value; } } //Предоплата
+        public string Celebration { get { return celebration; } set { celebration = value; } } //На какое тожество
+        public DateTime DateIn { get { return date_in; } set { date_in = value; } } //Дата поступления
+        public int CustomerId { get { return customer_id; } set { customer_id = value; } } //id Покупателя
 
+        public Order() { }
 
-        public Order(bool status, DateTime date_out, string order_composition, string delivery_method, string communication_method, double order_amount, double delivery_amount, double prepayment, string celebration,
-            DateTime date_in, int customer_id)
+        public Order( DateTime date_out, string order_composition, string delivery_method, string communication_method, double order_amount, double delivery_amount, double prepayment, string celebration,
+            DateTime date_in, int customer_id, bool status = false)
         {
-            this.status = status; this.date_out = date_out; this.order_composition = order_composition; this.delivery_method = delivery_method; this.communication_method = communication_method;
+            this.status = status; 
+            this.date_out = date_out; this.order_composition = order_composition; this.delivery_method = delivery_method; this.communication_method = communication_method;
             this.order_amount = order_amount; this.delivery_amount = delivery_amount; this.prepayment = prepayment; this.celebration = celebration; this.date_in = date_in; this.customer_id = customer_id;
         }
-
-
-
     }
 }

@@ -73,10 +73,6 @@ namespace Manager.Orders
 
         private void buttonSetOrder_Click(object sender, RoutedEventArgs e)
         {
-            bool status = false;
-            //if (radioBattonNotReady.IsChecked == true) status = false;
-            //else if (radioBattonReady.IsChecked == true) status = true;
-
             DateTime date_out = (DateTime)datePickerOut.SelectedDate;
             string order_composition = textBoxComment.Text;
             string delivery_method = comboboxDelivery.Text;
@@ -87,12 +83,15 @@ namespace Manager.Orders
             string celebration = comboboCelebration.Text;
             DateTime date_in = (DateTime)datePickerIn.SelectedDate;
             int customer_id = Convert.ToInt32(textBoxCustomerID.Text);
-            order = new Order(status, date_out, order_composition, delivery_method, communication_method, order_amount, delivery_amount, prepayment, celebration, date_in, customer_id);
-
+            order = new Order(date_out, order_composition, delivery_method, communication_method, order_amount, delivery_amount, prepayment, celebration, date_in, customer_id);
             using (var db = new ApplicationContext())
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
+                MessageBox.Show($"Заказ\n{order.id}\n- успешно зарегистрирован");
+                UserCabinet userCabinet = new UserCabinet();
+                userCabinet.Show();
+                Hide();
             }
         }
     }

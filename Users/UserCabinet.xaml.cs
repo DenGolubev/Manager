@@ -104,5 +104,43 @@ namespace Manager
             }
                 
         }
+
+        private void buttonOrderCard_Click(object sender, RoutedEventArgs e)
+        {
+            using (db = new ApplicationContext())
+            {
+                if (gridCustomers.SelectedItems.Count > 0)
+                {
+                    for (int i = 0; i < gridCustomers.SelectedItems.Count; i++)
+                    {
+                        Customer customer = gridCustomers.SelectedItems[i] as Customer;
+                        Order info = db.Orders.Where(t => t.CustomerId == customer.id).FirstOrDefault();
+                        if (info != null)
+                        {
+                            OrdersList ordersList = new OrdersList();
+                            ordersList.Show();
+                            db.Orders.Where(t => t.CustomerId == customer.id).Load();
+                            ordersList.gridOrders.ItemsSource = db.Orders.Local.ToBindingList();
+                            Hide();
+                        }
+                        else MessageBox.Show("Заказов не найдено");
+                    }
+                }
+                else MessageBox.Show("Не выбран покупатель");
+            }
+        }
+
+        private void buttonAllOrderCard_Click(object sender, RoutedEventArgs e)
+        {
+            using (db = new ApplicationContext())
+            {
+                OrdersList ordersList = new OrdersList();
+                ordersList.Show();
+                db.Orders.Load();
+                ordersList.gridOrders.ItemsSource = db.Orders.Local.ToBindingList();
+                Hide();
+            }
+             
+        }
     }
 }
