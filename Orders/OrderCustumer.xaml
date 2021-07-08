@@ -8,7 +8,7 @@
         xmlns:src="clr-namespace:Manager.Collections"
         mc:Ignorable="d"
         Title="Страница просмотра и редактирования заказа" Height="800" Width="1200" AllowsTransparency="True" Background="Transparent" WindowStyle="None" WindowStartupLocation="CenterScreen" 
-        MouseLeftButtonDown="Window_MouseLeftButtonDown" Loaded="Window_Loaded">
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
         <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="20" Height="750" Width="1150">
             <Border.Effect>
