@@ -13,6 +13,11 @@ namespace Manager
         public string Email { get { return email; } set { email = value; } }
         
         public User() { }
+        public User(string login, string pass) 
+        {
+            this.login = CreateName(login);
+            this.pass = CreatePass(pass);
+        }
 
         public User(string login, string pass, string email)
         {

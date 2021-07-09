@@ -22,8 +22,7 @@ namespace Manager
     /// </summary>
     public partial class AuthUsers : Window
     {
-        User auth_user { get; set; }
-        AuthUser user;
+        AuthorizationUsers user;
         public AuthUsers()
         {
             InitializeComponent();
@@ -32,10 +31,10 @@ namespace Manager
         
         private void buttonAuthorization_Click(object sender, RoutedEventArgs e)
         {
-            user = new AuthUser(textBoxLogin.Text, passBox.Password);
-            auth_user = user.User;
+            user = new AuthorizationUsers(textBoxLogin.Text, passBox.Password);
+            //auth_user = user.User;
 
-            if (auth_user != null)
+            if (user.StatusUser)
             {
                 UserCabinet cabinet = new UserCabinet();
                 cabinet.Show();
@@ -70,6 +69,8 @@ namespace Manager
         {
             InputLanguageManager.SetInputLanguage(passBox, new CultureInfo("en_US"));
         }
+
+
 
         
     }

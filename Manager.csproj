@@ -110,7 +110,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationContext.cs" />
-    <Compile Include="Authorization\AuthUser.cs" />
+    <Compile Include="Authorization\AuthorizationUsers.cs" />
     <Compile Include="Authorization\AuthUsers.xaml.cs">
       <DependentUpon>AuthUsers.xaml</DependentUpon>
     </Compile>
@@ -134,6 +134,10 @@
     <Compile Include="Migrations\202107072136081_AddOrderMigration2.cs" />
     <Compile Include="Migrations\202107072136081_AddOrderMigration2.designer.cs">
       <DependentUpon>202107072136081_AddOrderMigration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107092022116_AddUserMigration.cs" />
+    <Compile Include="Migrations\202107092022116_AddUserMigration.designer.cs">
+      <DependentUpon>202107092022116_AddUserMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders\Order.cs" />
@@ -209,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107072136081_AddOrderMigration2.resx">
       <DependentUpon>202107072136081_AddOrderMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107092022116_AddUserMigration.resx">
+      <DependentUpon>202107092022116_AddUserMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
