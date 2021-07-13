@@ -27,10 +27,6 @@ namespace Manager.Orders
         {
             InitializeComponent();
         }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {            
-            //get_Customer_id(textBoxName.Text, textBoxTelefon.Text, textBox_Email.Text);
-        }
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
@@ -58,17 +54,12 @@ namespace Manager.Orders
             using (db = new ApplicationContext())
             {
                 int customer_id = Convert.ToInt32(textBoxCustomerID.Text);
-                Order info = db.Orders.Where(t => t.CustomerId == customer_id).FirstOrDefault();
-                if (info != null)
-                {
-                    
-                    OrdersList ordersList = new OrdersList();
-                    ordersList.Show();
-                    db.Orders.Where(t => t.CustomerId == customer_id).Load();
-                    ordersList.gridOrders.ItemsSource = db.Orders.Local.ToBindingList();
-                    Hide();
-                }
-                else MessageBox.Show("Заказов не найдено");
+                Order info = db.Orders.Where(t => t.CustomerId == customer_id).FirstOrDefault(); 
+                OrdersList ordersList = new OrdersList();
+                ordersList.Show();
+                db.Orders.Where(t => t.CustomerId == customer_id).Load();
+                ordersList.gridOrders.ItemsSource = db.Orders.Local.ToBindingList();
+                Hide();
             }
            
         }
